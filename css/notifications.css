@@ -1,0 +1,41 @@
+/* Header inbox and history; sidebar pending-task badges stay independent. */
+.notification-center { position: relative; }
+.notification-btn .notification-badge { background: #C62828; color: #fff; min-width: 19px; padding: 2px 5px; line-height: 1.25; }
+.notification-btn .notification-badge[hidden], .notification-panel[hidden] { display: none; }
+.notification-panel { position: fixed; z-index: 1100; width: min(370px, calc(100vw - 24px)); max-height: calc(100dvh - 90px); display: flex; flex-direction: column; background: #fff; border: 1px solid #D7E7F2; border-radius: 12px; box-shadow: 0 12px 36px rgba(11,31,58,.2); color: #173B63; overflow: hidden; font-size: .82rem; }
+.notification-panel-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: #0F2747; color: #fff; padding: 13px 15px; flex-shrink: 0; }
+.notification-panel-header h2 { color: #fff; font-size: 1rem; margin: 0; }
+.notification-panel-header > span { font-size: .75rem; }
+.notification-panel-actions { display: flex; justify-content: flex-end; padding: 8px 12px; border-bottom: 1px solid #E3EEF7; flex-shrink: 0; }
+.notification-panel-actions button { border: 0; background: transparent; color: #2F6FAE; font: inherit; cursor: pointer; }
+.notification-panel button:disabled { opacity: .6; cursor: wait; }
+.notification-panel-list { overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+.notification-panel-item, .notification-history-item { display: flex; flex-direction: column; gap: 5px; width: 100%; text-align: left; border: 0; border-bottom: 1px solid #E3EEF7; background: #fff; color: #173B63; font: inherit; padding: 12px 15px; cursor: pointer; overflow-wrap: anywhere; }
+.notification-panel-item:hover, .notification-history-item:hover { background: #F4F9FD; }
+.notification-panel-item.is-unread, .notification-history-item.is-unread { background: #EDF6FC; box-shadow: inset 3px 0 #2F6FAE; }
+.notification-item-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.notification-item-heading strong { font-size: .84rem; min-width: 0; }
+.notification-read-state { flex-shrink: 0; color: #52749A; font-size: .69rem; }
+.is-unread .notification-read-state { color: #2F6FAE; font-weight: 700; }
+.notification-description { color: #52749A; font-size: .79rem; line-height: 1.5; white-space: pre-wrap; }
+.notification-panel-item .notification-description { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.notification-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; color: #7892AA; font-size: .72rem; }
+.notification-category { font-weight: 600; }
+.notification-panel footer { padding: 11px; text-align: center; border-top: 1px solid #E3EEF7; flex-shrink: 0; }
+.notification-panel footer a { color: #2F6FAE; text-decoration: none; font-weight: 600; }
+.notification-empty { padding: 20px 15px; text-align: center; color: #7892AA; }
+.notification-feedback { margin: 0; color: #9b2335; font-size: .8rem; }
+.notification-feedback:not(:empty) { padding: 10px 14px; }
+.notification-history-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.notification-history-toolbar .filter-bar { width: auto; margin: 0; }
+.notification-history-list { border: 1px solid #E3EEF7; border-radius: 10px; overflow: hidden; }
+.notification-history-item:last-child { border-bottom: 0; }
+.notification-history-item .notification-description { font-size: .86rem; }
+.notification-pagination { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 18px; font-size: .8rem; }
+.notification-pagination nav { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.notification-page { padding: 6px 10px; border: 1px solid #D7E7F2; border-radius: 6px; color: #173B63; text-decoration: none; }
+.notification-page.active { background: #2F6FAE; border-color: #2F6FAE; color: #fff; }
+.notification-page.disabled { opacity: .45; }
+.profile-section { text-decoration: none; color: inherit; }
+.profile-section:focus-visible, .notification-btn:focus-visible, .notification-panel button:focus-visible, .notification-panel a:focus-visible, .notification-history-item:focus-visible { outline: 2px solid #75B9E6; outline-offset: 2px; }
+@media (max-width: 600px) { .header-actions { gap: .6rem; } .notification-history-toolbar { align-items: flex-start; } .notification-panel { max-height: calc(100dvh - 85px); } }

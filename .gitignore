@@ -1,0 +1,6 @@
+.env
+sendmail.ini
+
+# Local-only legacy account records and test account bootstrap.
+/archive/sql/2026-10-26/ibarangaydocs_db.sql
+/php/create_test_superadmin.php

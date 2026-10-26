@@ -1,0 +1,27 @@
+{
+  "status": "WAITING_FOR_MANUAL_UAC",
+  "cause": "Windows administrators group is deny-only in the current filtered token; process is not elevated.",
+  "scheduler_service": "Running",
+  "local_account": "MYGIRL\\PC",
+  "script": "C:/Users/PC/Documents/FROSTLINECleanup/register-cleanup-dry-run.ps1",
+  "script_sha256": "D0C6672D605D7B739627439619C4F1E2C8D6668C104F4FDD907757624DB0DE78",
+  "script_syntax": "PASS",
+  "task_name": "FROSTLINE Expired Provisional Administrators",
+  "registration_executed": false,
+  "scheduled_execution_verified": false,
+  "direct_dry_run": {
+    "database": "cakey_db",
+    "eligible": [],
+    "deleted_ids": []
+  },
+  "task_mode": "--dry-run",
+  "runtime_logon": "S4U",
+  "runtime_run_level": "Limited",
+  "interval_minutes": 1,
+  "overlap_policy": "IgnoreNew",
+  "execution_time_limit_minutes": 5,
+  "automatic_deletion_enabled": false,
+  "history_currently_enabled": false,
+  "script_enables_operational_history": true,
+  "security_policies_changed": false
+}

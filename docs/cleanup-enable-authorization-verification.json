@@ -1,0 +1,65 @@
+{
+  "status": "IMPLEMENTED_AND_ISOLATED_TESTED_LIVE_DISABLED",
+  "modified_code": [
+    "cli/cleanup_expired_administrators.php",
+    "tests/provisional_cleanup_isolated_test.php"
+  ],
+  "new_code": [
+    "php/cleanup_enable_authorization.php",
+    "cli/security/inspect_cleanup_authorization.ps1",
+    "cli/security/.htaccess",
+    "tests/cleanup_enable_authorization_test.php",
+    "tests/cleanup_authorization_fixture.ps1",
+    "tests/.htaccess"
+  ],
+  "production_path": "C:/Users/PC/Documents/FROSTLINECleanup/enabled.json",
+  "production_trusted_owners": [
+    "SYSTEM",
+    "BUILTIN/Administrators"
+  ],
+  "runtime_identity": "MYGIRL/PC",
+  "runtime_control_access_required": "ReadAndExecute only; no modification or replacement rights on control file or parent",
+  "isolated_mode": "--isolated-test; actual database must match frostline_step4b_test_<16hex>; temporary authorization directory restricted to named per-test roots",
+  "tests": {
+    "missing": "PASS",
+    "invalid_json": "PASS",
+    "disabled": "PASS",
+    "database_mismatch": "PASS",
+    "arbitrary_production_path": "PASS",
+    "traversal": "PASS",
+    "junction_redirection": "PASS (real NTFS junction)",
+    "hard_link": "PASS (real NTFS hard link)",
+    "file_write_permissions": "PASS",
+    "parent_replacement_permissions": "PASS",
+    "inherited_write_permissions": "PASS",
+    "ownership_unverifiable": "PASS (isolated owner-metadata fault injection)",
+    "inspection_failure": "PASS (isolated invalid inspector-response injection)",
+    "valid_configuration": "PASS (real NTFS ACLs with explicit isolated trusted-owner policy)",
+    "production_test_mode_bypass": "REJECTED",
+    "cleanup_transaction_regression": "PASS",
+    "syntax": "PASS"
+  },
+  "live": {
+    "users": 9,
+    "security_logs": 347,
+    "enable_file_created": false,
+    "cleanup_enabled": false,
+    "task_mode": "--dry-run",
+    "task_changed": false,
+    "scheduled_last_result": 0,
+    "disposable_databases_remaining": 0
+  },
+  "blockers": [
+    "Production parent directory is currently PC-owned and grants PC FullControl, which the new policy rejects. Administrator/SYSTEM ownership and PC read-only grants must be established before any live enable file is created.",
+    "Real secured production-file/S4U execution is not performed because creating the live enable file and activation were prohibited."
+  ],
+  "unchanged": [
+    "four eligibility conditions",
+    "900-second expiry",
+    "OTP and activation",
+    "password handling",
+    "audit foreign keys and retention",
+    "database schema",
+    "task frequency and principal"
+  ]
+}

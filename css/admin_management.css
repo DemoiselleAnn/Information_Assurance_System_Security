@@ -1,0 +1,652 @@
+.management-page {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    color: var(--text-primary);
+}
+
+.management-header {
+    width: 100%;
+    margin: 0 0 1.25rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.management-header h1 {
+    margin: .25rem 0;
+    color: var(--deep-icy-navy);
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+}
+
+.back-link {
+    color: var(--main-blue);
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 500;
+}
+
+.eyebrow {
+    margin: 1rem 0 0;
+    color: var(--text-muted);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.management-subtitle, .form-note {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: .94rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.management-panel, .management-alert {
+    width: 100%;
+    margin: 0 0 1.25rem;
+    background: rgba(255, 255, 255, .92);
+    border: 1px solid var(--light-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(23, 59, 99, .06);
+}
+
+.management-panel {
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.management-panel h2 {
+    margin: 0 0 .35rem;
+    color: var(--deep-icy-navy);
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.25rem 0 0;
+}
+
+.detail-grid div {
+    padding: .85rem;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    background: var(--frost-background);
+}
+
+.detail-grid dt {
+    color: var(--text-muted);
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.detail-grid dd {
+    margin: .25rem 0 0;
+    color: var(--deep-icy-navy);
+    font-weight: 600;
+}
+
+.management-alert {
+    padding: .9rem 1rem;
+}
+
+.management-alert.success { color: #276749; background: var(--soft-green); }
+.management-alert.error { color: #9b2335; background: var(--soft-red); }
+
+.management-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: 0;
+    color: var(--text-primary);
+    background: rgba(15, 39, 71, .42);
+}
+
+.management-dialog:not([open]) {
+    display: none;
+}
+
+.management-dialog::backdrop {
+    background: transparent;
+}
+
+.management-dialog > form {
+    position: relative;
+    width: min(92vw, 32rem);
+    box-sizing: border-box;
+    border: 1px solid var(--light-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: var(--frost-background);
+    box-shadow: 0 18px 50px rgba(23, 59, 99, .22);
+}
+
+.management-dialog h2 {
+    margin: 0 0 .65rem;
+    color: var(--deep-icy-navy);
+    font-size: 1.15rem;
+}
+
+.management-dialog-close {
+    position: absolute;
+    top: .65rem;
+    right: .75rem;
+    border: 0;
+    padding: .15rem .35rem;
+    color: var(--text-muted);
+    background: transparent;
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.management-dialog-close:hover {
+    color: var(--deep-icy-navy);
+}
+
+.management-dialog p {
+    margin: 0 0 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.filter-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    padding-inline: .25rem;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+}
+
+.filter-bar > label {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.filter-bar .btn,
+.filter-bar a.btn {
+    min-height: 2.5rem;
+    align-self: flex-end;
+}
+
+.filter-bar > label:first-of-type { flex: 1 1 260px; }
+
+.filter-bar input, .filter-bar select {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.filter-bar label, .administrator-form label {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    color: var(--text-secondary);
+    font-size: .78rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.filter-bar label:first-child { flex: 1 1 360px; }
+.filter-bar input, .filter-bar select, .administrator-form input, .administrator-form select {
+    min-height: 40px;
+    padding: .55rem .7rem;
+    border: 1px solid var(--light-border);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--deep-icy-navy);
+    font: inherit;
+    font-size: .86rem;
+    line-height: 1.4;
+}
+
+.management-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.management-table th {
+    padding: .85rem;
+    background: var(--pale-ice);
+    color: var(--deep-icy-navy);
+    text-align: left;
+    font-size: .74rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+}
+
+.management-table td {
+    padding: .85rem;
+    border-bottom: 1px solid var(--light-border);
+    color: var(--text-primary);
+    font-size: .84rem;
+    line-height: 1.45;
+    font-weight: 500;
+}
+
+.management-table tbody tr:hover { background: var(--frost-background); }
+.management-table .data-id,
+.management-table .data-employee-id,
+.management-table .data-log-id {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    font-weight: 500;
+    letter-spacing: .1px;
+    color: var(--text-secondary);
+}
+.management-table .data-username {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .08px;
+    color: var(--main-blue);
+}
+.management-table .data-name {
+    color: var(--deep-icy-navy);
+    font-weight: 600;
+}
+.management-table .data-email {
+    color: var(--text-secondary);
+}
+.management-table .data-date,
+.management-table .data-status-text,
+.management-table .data-role-text {
+    color: var(--text-primary);
+}
+.empty-state { text-align: center; padding: 2rem !important; }
+.empty-title { display: block; font-weight: 700; color: var(--deep-icy-navy); margin-bottom: .25rem; }
+.empty-subtitle { color: var(--text-secondary); font-size: .8rem; }
+.action-cell { width: 4.5rem; }
+.action-cell form { margin: 0; }
+.row-action-menu { position: relative; display: inline-flex; }
+.row-action-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 1px solid var(--light-border);
+    border-radius: 7px;
+    background: var(--pale-ice);
+    color: var(--deep-icy-navy);
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.row-action-trigger:hover, .row-action-trigger:focus-visible {
+    background: var(--frost-background);
+    color: var(--main-blue);
+    border-color: rgba(37, 96, 167, .26);
+}
+.row-action-popover {
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    min-width: 11rem;
+    max-width: min(14rem, calc(100vw - 1rem));
+    padding: .35rem;
+    border: 1px solid var(--light-border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .98);
+    box-shadow: 0 10px 26px rgba(23, 59, 99, .12);
+}
+.row-action-entry {
+    display: flex;
+    flex-direction: column;
+    gap: .18rem;
+}
+.row-action-entry > a,
+.row-action-entry > form,
+.row-action-entry > .delete-account-trigger,
+.row-action-entry > .demote-account-trigger,
+.row-action-entry > span {
+    width: 100%;
+}
+.row-action-entry > a,
+.row-action-entry > form > button,
+.row-action-entry > .delete-account-trigger,
+.row-action-entry > .demote-account-trigger,
+.row-action-entry > span {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 2.45rem;
+    box-sizing: border-box;
+    padding: .62rem .75rem;
+    border: 0;
+    border-radius: 7px;
+    font: inherit;
+    font-size: .8rem;
+    line-height: 1.25;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.row-action-entry > a,
+.row-action-entry > form > button,
+.row-action-entry > span {
+    color: var(--deep-icy-navy);
+    background: transparent;
+}
+.row-action-entry > a:hover, .row-action-entry > a:focus-visible,
+.row-action-entry > form > button:hover, .row-action-entry > form > button:focus-visible {
+    background: var(--frost-background);
+    color: var(--main-blue);
+}
+.row-action-entry > a i,
+.row-action-entry > form > button i,
+.row-action-entry > .delete-account-trigger i {
+    width: 1rem;
+    margin-right: .55rem;
+    flex-shrink: 0;
+}
+.row-action-entry > form { width: 100%; }
+.row-action-entry > form > button {
+    justify-content: flex-start;
+    border-radius: 7px;
+    color: var(--deep-icy-navy);
+}
+.row-action-entry > .delete-account-trigger,
+.row-action-entry > .demote-account-trigger {
+    justify-content: flex-start;
+    color: #9b2335;
+    background: transparent;
+    border-top: 1px solid var(--light-border);
+    margin-top: .15rem;
+    padding-top: .75rem;
+}
+.row-action-entry > .delete-account-trigger:hover,
+.row-action-entry > .delete-account-trigger:focus-visible {
+    background: rgba(155, 35, 53, .08);
+    color: #9b2335;
+}
+.row-action-entry > .demote-account-trigger:hover,
+.row-action-entry > .demote-account-trigger:focus-visible {
+    background: rgba(155, 35, 53, .08);
+    color: #9b2335;
+}
+.superadmin-demotion-dialog [data-demotion-error] { color: #9b2335; }
+.superadmin-demotion-dialog > .administrator-form {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    width: min(100%, 480px);
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    padding: 28px;
+    border-radius: 16px;
+}
+.superadmin-demotion-dialog .demotion-security-mark { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 14px; border-radius: 12px; background: #fcebed; color: #aa394b; font-size: 18px; }
+.superadmin-demotion-dialog h3 { margin: 0 0 16px; font-size: 20px; line-height: 1.4; color: #173b63; }
+.superadmin-demotion-dialog .demotion-warning { margin: 0 0 22px; padding: 14px 16px; border: 1px solid #efdcda; border-radius: 10px; background: #fff5f3; color: #77524f; font-size: 13px; line-height: 1.65; }
+.superadmin-demotion-dialog label { margin: 0 0 8px; font-size: 13px; }
+.superadmin-demotion-dialog input[type="password"] { box-sizing: border-box; width: 100%; min-width: 0; min-height: 42px; }
+.superadmin-demotion-dialog .demotion-password-help { margin-top: 8px; color: #6a7e91; font-size: 12px; line-height: 1.5; }
+.superadmin-demotion-dialog [data-demotion-error] { margin: 8px 0 0; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.superadmin-demotion-dialog .form-actions { justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 24px; padding-top: 18px; border-top: 1px solid #dce6ef; }
+.superadmin-demotion-dialog .form-actions .btn { min-height: 40px; padding: 10px 16px; white-space: nowrap; }
+@media (max-width: 480px) { .superadmin-demotion-dialog > .administrator-form { padding: 22px; } }
+.row-action-entry > span {
+    cursor: default;
+    color: var(--text-muted);
+    opacity: .9;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.access-restricted {
+    max-width: 38rem;
+    margin: 3rem auto;
+    padding: 3rem 2rem;
+    border: 1px solid var(--light-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 4px 15px rgba(23, 59, 99, .06);
+    text-align: center;
+}
+.access-restricted-icon { color: var(--main-blue); font-size: 2rem; margin-bottom: 1rem; }
+.access-restricted h2 { margin: 0 0 .65rem; color: var(--deep-icy-navy); font-size: 1.5rem; }
+.access-restricted p { margin: .35rem 0; color: var(--text-secondary); }
+.locked-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: .3rem .55rem;
+    border-radius: 999px;
+    background: var(--frost-background);
+    color: var(--text-muted);
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+.role-badge, .status-badge {
+    display: inline-block;
+    padding: .25rem .55rem;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: .12px;
+}
+
+.role-badge { background: var(--pale-ice); color: var(--main-blue); }
+.role-badge.super-admin { background: var(--main-blue); color: #fff; }
+.status-badge.active { background: var(--soft-green); color: #276749; }
+.status-badge.inactive { background: #eef1f4; color: #596574; }
+.status-badge.pending { background: var(--soft-amber); color: #966b00; }
+.status-badge.blocked, .status-badge.rejected { background: var(--soft-red); color: #9b2335; }
+
+.btn-primary { background: var(--main-blue); color: #fff; }
+.btn-primary:hover { background: var(--deep-icy-navy); }
+.btn-secondary { background: var(--pale-ice); color: var(--main-blue); border: 1px solid var(--light-border); }
+.btn-danger { background: var(--soft-red); color: #9b2335; }
+.btn-approve { background: var(--soft-green); color: #276749; }
+.btn-quiet { color: var(--text-secondary); background: transparent; text-decoration: none; }
+.btn-small { padding: .4rem .6rem; font-size: .72rem; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.page-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.1rem;
+    height: 2.1rem;
+    padding: .25rem .6rem;
+    border-radius: 999px;
+    background: var(--frost-background);
+    color: var(--deep-icy-navy);
+    text-decoration: none;
+    font-weight: 600;
+}
+.page-number.active {
+    background: var(--main-blue);
+    color: #fff;
+}
+.btn-quiet.disabled {
+    pointer-events: none;
+    opacity: .45;
+}
+
+.administrator-form {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.form-actions { display: flex; align-items: end; gap: .5rem; }
+
+.delete-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(9, 20, 34, .5);
+    padding: 1rem;
+    z-index: 2000;
+}
+.delete-modal-backdrop.open { display: flex; }
+.delete-modal {
+    width: min(100%, 38rem);
+    background: rgba(255, 255, 255, .98);
+    border: 1px solid var(--light-border);
+    border-radius: 12px;
+    box-shadow: 0 18px 45px rgba(23, 59, 99, .18);
+    overflow: hidden;
+}
+.delete-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--light-border);
+    background: var(--pale-ice);
+}
+.delete-modal-header h3 {
+    margin: 0;
+    color: var(--deep-icy-navy);
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.delete-modal-close {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.delete-modal-body {
+    padding: 1.25rem;
+}
+.delete-modal-intro {
+    margin: 0 0 1rem;
+    color: var(--text-secondary);
+    font-size: .94rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.delete-confirmation-copy {
+    margin: 0 0 1.25rem;
+    color: var(--text-secondary);
+    font-size: .9rem;
+    line-height: 1.5;
+}
+.delete-account-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .8rem 1rem;
+    margin: 0 0 1rem;
+    padding: .9rem;
+    border: 1px solid var(--light-border);
+    border-radius: 10px;
+    background: var(--frost-background);
+}
+.delete-account-summary div {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+.delete-account-summary dt {
+    color: var(--text-muted);
+    font-size: .72rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+}
+.delete-account-summary dd {
+    margin: 0;
+    color: var(--deep-icy-navy);
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    word-break: break-word;
+}
+.delete-account-summary .full-width {
+    grid-column: 1 / -1;
+}
+.delete-account-form label {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: var(--text-secondary);
+    font-size: .8rem;
+    font-weight: 600;
+}
+.delete-account-form textarea {
+    min-height: 7rem;
+    resize: vertical;
+    padding: .7rem .8rem;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--deep-icy-navy);
+    font: inherit;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.delete-account-form textarea:focus {
+    border-color: rgba(37, 96, 167, .45);
+    box-shadow: 0 0 0 3px rgba(37, 96, 167, .08);
+    outline: none;
+}
+.delete-warning {
+    margin: 1rem 0;
+    color: #9b2335;
+    font-weight: 700;
+}
+.delete-actions {
+    justify-content: flex-end;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.required-marker { color: #9b2335; }
+
+@media (max-width: 800px) {
+    .management-header { align-items: flex-start; flex-direction: column; }
+    .administrator-form { grid-template-columns: 1fr; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .form-actions { align-items: center; }
+}

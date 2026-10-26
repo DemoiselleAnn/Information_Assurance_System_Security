@@ -1,0 +1,58 @@
+/* Shared compact View Details dialog, based on Security Logs. */
+html.sl-modal-open { overflow: hidden; scrollbar-gutter: stable; }
+.sl-details-modal { box-sizing: border-box; width: min(92vw, 720px); max-width: 720px; max-height: 85vh; max-height: 85dvh; padding: 0; border: 1px solid #E3EEF7; border-radius: 16px; margin: auto; color: #173B63; background: #fff; box-shadow: 0 18px 60px rgba(15,39,71,.25); font-family: 'Poppins', sans-serif; overflow: hidden; }
+.sl-details-modal:not([open]) { display: none; }
+.sl-details-modal::backdrop { background: rgba(11,31,58,.48); }
+.sl-modal-frame { display: flex; flex-direction: column; max-height: calc(85vh - 2px); max-height: calc(85dvh - 2px); }
+.sl-modal-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--lighter-navy, #15365C); background: var(--dark-navy, #0F2747); color: #fff; flex-shrink: 0; }
+.sl-modal-close { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; border: 1px solid rgba(255,255,255,.45); border-radius: 8px; background: rgba(255,255,255,.12); color: #fff; font-size: 1.5rem; cursor: pointer; }
+.sl-modal-close:hover { background: rgba(255,255,255,.24); }
+.sl-modal-close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.sl-modal-body { padding: 14px 18px 18px; overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+.sl-modal-log-id { margin-bottom: 16px; }
+.sl-details-modal :is(.sl-detail-grid, .detail-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem .65rem; align-items: stretch; align-content: start; }
+.sl-details-modal :is(.sl-detail-grid, .detail-grid) > div { padding: .5rem .65rem; min-height: 0; min-width: 0; }
+.sl-details-modal :is(.sl-detail-grid, .detail-grid) dt { margin: 0; line-height: 1.35; }
+.sl-details-modal :is(.sl-detail-grid, .detail-grid) dd { white-space: normal; overflow-wrap: anywhere; }
+.sl-details-modal :is(.sl-detail-wide, .detail-wide) dd { white-space: pre-wrap; }
+@media (max-width: 760px) {
+    .sl-details-modal :is(.sl-detail-grid, .detail-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+    .sl-details-modal :is(.sl-detail-grid, .detail-grid) { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+    .sl-modal-header { padding: 12px 14px; }
+    .sl-modal-body { padding: 12px 14px 14px; }
+}
+
+.sl-modal-header .sl-modal-log-id { margin: 4px 0 0; color: #fff; font-size: .82rem; font-weight: 600; }
+
+/* Shared details cards retain each page's existing fields and badges. */
+.sl-modal-header > div { min-width: 0; overflow-wrap: anywhere; }
+.sl-modal-header .record-details-title { color: #fff; }
+.record-details-title { margin: 0; color: #0F2747; font-size: 1.1rem; font-weight: 600; }
+.record-details-body :is(.detail-grid, .sl-detail-grid) { display: grid; margin: 0; padding: 0; }
+.record-details-body :is(.detail-wide, .sl-detail-wide) { grid-column: 1 / -1; }
+.record-details-body :is(.detail-grid, .sl-detail-grid) > div { box-sizing: border-box; display: flex; flex-direction: column; gap: .2rem; border: 1px solid #E3EEF7; border-radius: 10px; background: #FCFDFE; }
+.record-details-body dt { color: #7892AA; font-size: .72rem; font-weight: 700; }
+.record-details-body dd { margin: 0; color: #173B63; font-size: .86rem; font-weight: 500; line-height: 1.45; min-width: 0; word-break: break-word; }
+.record-details-name { margin: 0 0 12px; font-weight: 600; overflow-wrap: anywhere; }
+.record-details-body h2, .record-details-body h3 { margin: 14px 0 10px; color: #0F2747; font-size: 1rem; }
+.record-details-body .review-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin: 14px 0; }
+.record-details-body .account-summary { display: flex; flex-direction: column; gap: .35rem; padding: .65rem; border: 1px solid #E3EEF7; border-radius: 10px; margin-bottom: 12px; }
+.record-details-body .permission-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.record-details-body .permission-option { padding: .5rem .65rem; border: 1px solid #E3EEF7; border-radius: 10px; min-width: 0; }
+.record-details-body .permission-option b, .record-details-body .permission-option span span { display: block; }
+.record-details-body .allowed { color: #276749; }
+.record-details-body .denied { color: #9b2335; }
+.record-details-body .individual-permissions { margin: 0; padding: 0; border: 0; }
+@media (max-width: 480px) { .record-details-body .permission-list { grid-template-columns: 1fr; } }
+
+/* These existing fields already carry explicit line-break markup. */
+.record-details-body .detail-wide dd { white-space: normal; }
+
+/* Long values wrap within their card while short-field rows share a clean edge. */
+.record-details-body :is(.role-badge, .status-badge, .sl-badge) { max-width: 100%; box-sizing: border-box; white-space: normal; overflow-wrap: anywhere; }
+.record-details-body .account-summary { min-width: 0; overflow-wrap: anywhere; }
+.record-details-body .permission-option { display: flex; flex-direction: column; gap: .2rem; overflow-wrap: anywhere; }

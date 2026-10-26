@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* Shared public-page alignment; Registration retains its existing visual styles. */
+.public-header-alignment {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+}
+
+.frostline-header.public-header-alignment,
+.main-header.public-header-alignment {
+    padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+.public-header-alignment > .header-content {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+}
+
+.public-header-alignment .nav-links {
+    gap: clamp(.8rem, 2vw, 1.8rem);
+}
+
+.public-header-alignment .nav-links a {
+    padding-inline: 0;
+}
+
+/* Shared Homepage and Login appearance. Keep typography independent of page fonts. */
+.frostline-header {
+    min-height: 76px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: .8rem clamp(1.25rem, 4vw, 4rem);
+    position: relative;
+    z-index: 5;
+    background: rgba(251, 253, 255, .9);
+    border-bottom: 1px solid rgba(20, 123, 183, .2);
+    box-shadow: 0 4px 18px rgba(16, 63, 101, .08);
+    backdrop-filter: blur(16px);
+    font-family: 'Manrope', sans-serif;
+}
+
+.frostline-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    color: var(--deep-blue);
+    text-decoration: none;
+}
+
+.frostline-header .brand-mark {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    color: var(--frost-blue);
+    background: #c9eafb;
+    border: 1px solid rgba(20, 123, 183, .2);
+    border-radius: 50%;
+    font-size: 1.25rem;
+}
+
+.frostline-header .brand-copy { display: flex; flex-direction: column; line-height: 1.05; }
+.frostline-header .brand-copy strong { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: .13em; }
+.frostline-header .brand-copy small { margin-top: .28rem; color: var(--muted-blue); font-size: .58rem; font-weight: 800; letter-spacing: .18em; }
+
+.frostline-nav { display: flex; align-items: center; gap: clamp(.8rem, 2vw, 1.8rem); }
+.frostline-nav a {
+    color: var(--deep-blue);
+    font-size: .82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+.frostline-nav a:hover { color: var(--frost-blue); }
+.frostline-nav .nav-register { color: var(--frost-blue); }
+
+@media (max-width: 900px) {
+    .frostline-header { align-items: flex-start; flex-direction: column; gap: .8rem; }
+    .frostline-nav { width: 100%; justify-content: space-between; gap: .6rem; }
+}
+
+@media (max-width: 560px) {
+    .frostline-nav { flex-wrap: wrap; justify-content: flex-start; }
+    .frostline-nav a { font-size: .75rem; }
+}

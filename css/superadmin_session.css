@@ -1,0 +1,66 @@
+.superadmin-session-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    margin: 1rem 1.5rem 0;
+    padding: .85rem 1rem;
+    border: 1px solid #F0D58A;
+    border-radius: 10px;
+    background: #FFF8E6;
+    color: #6B5200;
+    box-shadow: 0 4px 15px rgba(23, 59, 99, .06);
+}
+.superadmin-session-warning[hidden] { display: none; }
+.superadmin-session-warning > i { margin-top: .15rem; color: #966B00; }
+.superadmin-session-warning strong,
+.superadmin-session-warning span { display: block; }
+.superadmin-session-warning strong { font-size: .84rem; }
+.superadmin-session-warning span { margin-top: .2rem; font-size: .78rem; }
+.superadmin-access-page { margin:0; min-height:100vh; display:grid; place-items:center; background:#edf3f9; color:#173b63; font-family:Arial,sans-serif; }
+.superadmin-access-card { width:min(440px,calc(100vw - 72px)); padding:32px; border-radius:16px; background:#fff; box-shadow:0 18px 60px rgba(23,59,99,.22); text-align:center; line-height:1.6; font-family:Arial,sans-serif; }
+.superadmin-access-card h1 { font-size:24px; margin:0 0 14px; color:#173b63; }
+.superadmin-expired-overlay { position:fixed; inset:0; z-index:2147483647; display:grid; place-items:center; background:rgba(13,30,49,.65); backdrop-filter:blur(6px); }
+
+/* Pending access only: keep dashboard warnings and expiry feedback unchanged. */
+.superadmin-pending-page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 24px;
+    background: linear-gradient(rgba(239, 247, 252, .25), rgba(239, 247, 252, .35)), url('../GalleryImgs/Train%20choochoo.png') center / cover no-repeat;
+}
+.superadmin-pending-page .superadmin-access-card {
+    box-sizing: border-box;
+    width: min(100%, 440px);
+    padding: 32px 34px;
+    border: 1px solid rgba(255, 255, 255, .85);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .93);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 16px 50px rgba(23, 59, 99, .18);
+}
+.superadmin-pending-page .pending-brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #e9f5fc;
+    color: #147bb7;
+    font-size: 28px;
+}
+.superadmin-pending-page .pending-brand-name { margin: 12px 0 24px; color: #173b63; font-size: 13px; font-weight: 700; letter-spacing: 2px; }
+.superadmin-pending-page .pending-brand-name span { display: block; margin-top: 3px; color: #708599; font-size: 9px; font-weight: 500; letter-spacing: 1.6px; }
+.superadmin-pending-page #pending-title { font-size: clamp(21px, 4vw, 24px); line-height: 1.3; margin-bottom: 14px; }
+.superadmin-pending-page .pending-explanation { margin: 0; color: #5b7083; font-size: 14px; line-height: 1.7; }
+.superadmin-pending-page .pending-countdown { margin: 24px 0; padding: 17px; border: 1px solid #dcebf5; border-radius: 14px; background: rgba(238, 247, 252, .85); }
+.superadmin-pending-page .pending-countdown p { margin: 0 0 2px; color: #5b7083; font-size: 12px; }
+.superadmin-pending-page #superadmin-session-countdown { display: block; color: #147bb7; font-size: 44px; line-height: 1.2; font-weight: 700; font-variant-numeric: tabular-nums; }
+.superadmin-pending-page .pending-countdown-unit { color: #708599; font-size: 12px; }
+.superadmin-pending-page .pending-cancel { display: inline-block; padding: 10px 18px; border: 1px solid #cfdeea; border-radius: 9px; color: #385a76; background: rgba(255, 255, 255, .7); font-size: 13px; font-weight: 600; text-decoration: none; transition: background .15s ease, border-color .15s ease; }
+.superadmin-pending-page .pending-cancel:hover { background: #edf6fc; border-color: #92bad4; }
+.superadmin-pending-page .pending-cancel:focus-visible { outline: 3px solid #147bb7; outline-offset: 3px; }
+@media (max-width: 480px) {
+    .superadmin-pending-page { padding: 18px; }
+    .superadmin-pending-page .superadmin-access-card { padding: 26px 22px; }
+}

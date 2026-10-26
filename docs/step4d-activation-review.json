@@ -1,0 +1,46 @@
+{
+  "status": "AWAITING_EXPLICIT_FINAL_CONFIRMATION",
+  "task_name": "FROSTLINE Expired Provisional Administrators",
+  "executable": "C:\\xampp\\php\\php.exe",
+  "working_directory": "C:\\xampp\\htdocs\\Cakedeco",
+  "before_arguments": "\"C:\\xampp\\htdocs\\Cakedeco\\cli\\cleanup_expired_administrators.php\" --dry-run",
+  "proposed_after_arguments": "\"C:\\xampp\\htdocs\\Cakedeco\\cli\\cleanup_expired_administrators.php\" --execute --enable-file=\"C:\\Users\\PC\\Documents\\FROSTLINECleanup\\enabled.json\" --log-file=\"C:\\Users\\PC\\Documents\\FROSTLINECleanup\\cleanup.jsonl\" --limit=100",
+  "preflight": {
+    "database": "cakey_db",
+    "eligible_accounts": 0,
+    "users": 9,
+    "security_logs": 347,
+    "completed_administrators": 7,
+    "customers": 2,
+    "completed_accounts": 9,
+    "last_scheduled_result": 0,
+    "last_scheduled_run_manila": "2026-10-12T17:16:46+08:00",
+    "backup_checksum_match": true,
+    "backup_restore_verified": true,
+    "audit_delete_rule": "SET NULL",
+    "audit_update_rule": "RESTRICT",
+    "tested_cleanup_hashes_match": true,
+    "private_directory_permissions_verified": true
+  },
+  "unchanged_settings": {
+    "interval": "PT1M",
+    "runtime_user": "MYGIRL\\PC",
+    "logon_type": "S4U",
+    "run_level": "Limited",
+    "overlap": "IgnoreNew",
+    "execution_time_limit": "PT5M"
+  },
+  "proposed_enable_file": {
+    "path": "C:\\Users\\PC\\Documents\\FROSTLINECleanup\\enabled.json",
+    "contents": {
+      "enabled": true,
+      "database": "cakey_db"
+    }
+  },
+  "proposed_log": "C:\\Users\\PC\\Documents\\FROSTLINECleanup\\cleanup.jsonl",
+  "activation_applied": false,
+  "enable_file_created": false,
+  "cleanup_log_created": false,
+  "authorization_hardening": "Implemented and isolated-tested",
+  "production_acl_preparation_required": true
+}

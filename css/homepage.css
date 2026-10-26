@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.main-log {
+    font-family: 'Poppins', sans-serif;
+    background: #F5EFE7;
+    color: #213555;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===== Header ===== */
+.main-header {
+    width: 100%;
+    background: linear-gradient(135deg, #213555 0%, #3E5879 100%);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.4rem 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.logo span {
+    color: #FFD600;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+.main-header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.main-header a:hover {
+    background: #213555;
+    color: #FFD600;
+}
+
+/* ✅ Welcome section */
+.welcome-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.welcome-section h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* ✅ Dashboard cards */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px 40px;
+}
+
+.dashboard-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.card-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #008060;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.card-btn:hover {
+    background: #00543C;
+}
+
+/* ✅ Recent Activity */
+.recent-activity {
+    background: #fff;
+    margin: 0 20px 40px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.recent-activity h2 {
+    margin-bottom: 15px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    background: #f8f8f8;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.activity-icon {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.activity-content p {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.activity-content small {
+    color: #666;
+    font-size: 12px;
+}
+
+.no-activity {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+.form-container {
+            max-width: 500px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background: #218838;
+        }
+        .success-message {
+            text-align: center;
+            color: green;
+            margin-bottom: 10px;
+        }

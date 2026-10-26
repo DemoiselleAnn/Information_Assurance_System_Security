@@ -1,0 +1,13 @@
+<?php
+if(PHP_SAPI!=='cli'){http_response_code(404);exit;}
+require_once __DIR__.'/../php/temporary_credentials.php';require_once __DIR__.'/../php/recovery_mail.php';
+if(($argv[1]??'')==='--sender'){
+    if($argv[2]==='OTP'){$login=file_get_contents(__DIR__.'/../php/login.php');preg_match('/\$otpSubject = [\s\S]*?\$emailSent\s*=/',$login,$m);$code=substr($m[0],0,strrpos($m[0],'$emailSent'));$full_name='Dummy Fixture';$otp='123456';eval($code);$ok=sendRecoveryEmail('recipient@example.test',$otpSubject,$otpBody,0,'ADMIN');}
+    else $ok=sendTemporaryCredentialEmail('recipient@example.test','Dummy Fixture','TEST-ID','DummyFixture','DummyTemporary123!',0,$argv[2]);
+    echo $ok?'ACCEPTED':'REJECTED';exit;
+}
+$dir=sys_get_temp_dir().'/frostline-mail-'.bin2hex(random_bytes(8));mkdir($dir);$log=$dir.'/diagnostic.log';$env=getenv();$env['FROSTLINE_MAIL_FROM']='sender@example.test';
+function sendFixture($role,$sink,$env,$log){$transport=$sink==='--unavailable'?__DIR__.'/missing-sendmail.exe':PHP_BINARY.' '.__DIR__.'/credential_mail_sink.php '.$sink;$pipes=[];$proc=proc_open([PHP_BINARY,'-d','sendmail_path='.$transport,'-d','error_log='.$log,__FILE__,'--sender',$role],[['pipe','r'],['pipe','w'],['pipe','w']],$pipes,null,$env);fclose($pipes[0]);$out=stream_get_contents($pipes[1]);$err=stream_get_contents($pipes[2]);fclose($pipes[1]);fclose($pipes[2]);if(proc_close($proc)!==0||$err!=='')throw new RuntimeException('Capture child failed; no message data logged');return $out;}
+try{foreach(['ADMIN','SUPER_ADMIN','OTP'] as $role){$file=$dir.'/'.$role.'.json';if(sendFixture($role,$file,$env,$log)!=='ACCEPTED')throw new RuntimeException('Local capture transport did not accept the message');$result=json_decode(file_get_contents($file),true);if($role==='OTP'){if(!$result['otp'])throw new RuntimeException('OTP body mismatch');}elseif(!$result['initial']||!$result['dummy_password_present']||!$result['id_label']||!$result['deadline'])throw new RuntimeException('Credential body mismatch');echo 'PASS: '.$role.' message accepted by local capture transport.'.PHP_EOL;}
+if(sendFixture('ADMIN','--unavailable',$env,$log)!=='REJECTED')throw new RuntimeException('Invalid transport configuration not rejected');$diagnostic=file_get_contents($log);if(str_contains($diagnostic,'DummyTemporary123!')||str_contains($diagnostic,'123456'))throw new RuntimeException('Secret in diagnostic log');echo 'PASS: invalid transport rejected; diagnostics contain no password or OTP.'.PHP_EOL;echo 'NOT TESTED: external SMTP acceptance or actual inbox delivery.'.PHP_EOL;
+}finally{foreach(glob($dir.'/*') as $file)unlink($file);rmdir($dir);}

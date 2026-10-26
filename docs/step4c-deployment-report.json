@@ -1,0 +1,39 @@
+{
+  "deployment_status": "BLOCKED",
+  "blocker": "Windows Task Scheduler Register-ScheduledTask returned Access is denied. Current agent Windows token is not elevated.",
+  "scheduler_name": "FROSTLINE Expired Provisional Administrators",
+  "scheduler_created": false,
+  "scheduler_execution_verified": false,
+  "execution_enabled": false,
+  "live_deletions": [],
+  "dry_run": {
+    "eligible": 0,
+    "protected_completed_administrators": 7,
+    "protected_customers": 2,
+    "all_completed_accounts": 9
+  },
+  "before": {
+    "users": 9,
+    "security_logs": 347
+  },
+  "backup": {
+    "path": "C:/Users/PC/Documents/FROSTLINEBackups/step4c_20261012_163900_53b84b2b/cakey_db_full_20261012_163936_4d15c289.sql",
+    "sha256": "b9dfbc486ad7244b58d734470e711a7c4ef2e49d93fcde6fb8e900487cd8c2f4",
+    "created": "2026-10-12T16:39:36+08:00",
+    "table_count": 12,
+    "restore_verified": true,
+    "test_database_removed": true
+  },
+  "isolated_tests": "PASS",
+  "mail_inbox_verification": "Previously confirmed by user for both roles",
+  "remaining_action": "Task registration requires an elevated Windows administrator session; retry only after that access is available.",
+  "tested_code_hashes_unchanged": true,
+  "after": {
+    "users": 9,
+    "security_logs": 347
+  },
+  "maintenance_active": false,
+  "original_access_restored": true,
+  "public_pages_reachable": true,
+  "cleanup_http_status": 404
+}

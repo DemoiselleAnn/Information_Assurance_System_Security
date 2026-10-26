@@ -1,0 +1,32 @@
+.matrix { min-width: 720px; }
+.matrix td:not(:first-child), .matrix th:not(:first-child) { text-align: center; }
+.allowed { color: #276749; font-weight: 700; font-size: .78rem; }
+.denied { color: #9b2335; font-size: .78rem; }
+.account-summary { display: grid; gap: .25rem; margin: 1rem 0; padding: 1rem; background: var(--frost-background); border: 1px solid var(--light-border); border-radius: 8px; color: var(--text-secondary); }
+.account-summary strong { color: var(--deep-icy-navy); font-size: 1.1rem; }
+.permission-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin: 1rem 0 1.25rem; }
+.permission-option { display: flex; align-items: flex-start; gap: .7rem; padding: .85rem; border: 1px solid var(--light-border); border-radius: 8px; background: #fff; color: var(--deep-icy-navy); }
+.permission-option input { accent-color: var(--main-blue); margin-top: .2rem; }
+.permission-option span { display: grid; gap: .2rem; }
+.permission-option small { color: var(--text-muted); font-size: .72rem; }
+@media (max-width: 800px) { .permission-list { grid-template-columns: 1fr; } }
+.individual-accounts { min-width: 0; }
+.account-pagination { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; color: var(--text-secondary); font-size: .8rem; }
+.account-pagination[hidden] { display: none; }
+.account-pagination nav { display: flex; flex-wrap: wrap; gap: .35rem; }
+.account-pagination button { padding: .4rem .65rem; min-height: 34px; border: 1px solid var(--light-border); border-radius: 7px; background: #fff; color: var(--main-blue); font: inherit; cursor: pointer; }
+.account-pagination button[aria-current="page"] { background: var(--main-blue); color: #fff; }
+.account-pagination button:disabled { opacity: .45; cursor: default; }
+.account-pagination button:hover:not(:disabled), .account-pagination button:focus-visible { outline: 2px solid var(--main-blue); outline-offset: 2px; }
+.account-filters { margin-top: 1rem; gap: .75rem; }
+.account-filters label:first-child { flex: 1 1 260px; }
+.account-filters label { min-width: 0; }
+.account-filters input { width: 100%; }
+.account-result-count, .account-permission-note { color: var(--text-secondary); font-size: .82rem; margin: .75rem 0; }
+.account-results { min-width: 720px; }
+.account-results [hidden] { display: none; }
+.individual-permissions { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--light-border); scroll-margin-top: 7rem; }
+@media (max-width: 600px) {
+    .account-filters label:first-child { flex-basis: 100%; }
+    .account-filters label { flex: 1; }
+}

@@ -1,0 +1,11 @@
+{
+  "cli/cleanup_expired_administrators.php": "c82caf92694a5a107d8724e5c2227049bff9149ec8d9d10e91e9405b9d2caaf1",
+  "php/provisional_account_cleanup.php": "7cfe3f9f8a17a8db82bfbb8b236e6434a9f4aedb5f1ad343b75f10fe733e85c3",
+  "php/first_login_activation.php": "79fce33e8a2afc63bec69690a9a5e4eabccab3c154a2c63fe9e90a792dacb783",
+  "php/first_login_state.php": "f8764ab8fba9b47ad8b021932875b80030803bf5bf7d0e5d74a24ea0e14effff",
+  "php/first_login_otp.php": "c70123995715ce152ebbe36ae441ae5da3c5b74e833f528a4adaf47911837e4e",
+  "php/first_login_setup.php": "b4bd07eb77b02059c57397b52151ea87ebdb56ce64c118a480a26632b6f43e82",
+  "php/process_first_login_setup.php": "7cf88d7ff45c41588087a3c827c1c49a804f83cc2c9441f41046e5d0bef008b1",
+  "php/admin_management.php": "a033a286d94c3e093e556e5f81ee0119351cd78ee4ae5b09d0033d8c1dd9f7b8",
+  "php/temporary_credentials.php": "8e567d9f612432e93f86795a957b0e4c509b7b179f2f3fec700b24784771e795"
+}

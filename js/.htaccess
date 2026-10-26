@@ -1,0 +1,11 @@
+<IfModule mod_authz_core.c>
+    # Block direct navigation to JS; allow only when Referer is our site (normal page loads)
+    <FilesMatch "\.js$">
+        Require all denied
+        <If "%{HTTP_REFERER} =~ m#^https?://localhost(?::8080)?/(?:iBarangayDocs107/iBarangayDocs|Cakedeco)/#">
+            Require all granted
+        </If>
+    </FilesMatch>
+</IfModule>
+
+

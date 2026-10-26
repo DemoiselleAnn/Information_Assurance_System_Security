@@ -1,0 +1,23 @@
+{
+  "status": "PREPARED_AWAITING_PERMISSION_APPROVAL",
+  "acl_changes_applied": false,
+  "script": "C:/Users/PC/Documents/FROSTLINEBackups/step4c_20261012_163900_53b84b2b/prepare-cleanup-ntfs.ps1",
+  "script_sha256": "A22450E8A8ED5494B97CBFE3A96FF86054A1324A6C226F0AC8D53ECD8D4B51B6",
+  "backup": "C:/Users/PC/Documents/FROSTLINEBackups/step4c_20261012_163900_53b84b2b/cleanup-acl-before_20261012_190358_3c030230.json",
+  "backup_sha256": "BBF2E799995B8BD0345411434846C9E139CBEAFA0D79686AF3F3A1C9A9AA5B4D",
+  "current_owner": "MYGIRL/PC",
+  "proposed_owner": "BUILTIN/Administrators",
+  "runtime_read_only_directory": true,
+  "runtime_write_only_logfile": true,
+  "proposed_empty_log": "C:/Users/PC/Documents/FROSTLINECleanup/cleanup.jsonl",
+  "live_enable_file_created": false,
+  "task_changed": false,
+  "script_syntax": "PASS",
+  "plan": "PASS",
+  "actual_acl_application": "NOT EXECUTED",
+  "production_helper_file_check": "NOT EXECUTED: live control prohibited",
+  "latest_scheduled_dry_run_result": 0,
+  "latest_scheduled_dry_run_time_trigger_verified": true,
+  "scheduler_changed": false,
+  "current_acl_application": "NOT EXECUTED"
+}

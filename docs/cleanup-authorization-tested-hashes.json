@@ -1,0 +1,6 @@
+{
+  "cli/cleanup_expired_administrators.php": "09b610857f11b987c701f4c3d33f00d9e7c4e70827f455b89ca54645eb43d67c",
+  "php/cleanup_enable_authorization.php": "586389e98de40ca77bb231c5b5c1b39b5bc5d481f0f474b7b010380655e1b45a",
+  "cli/security/inspect_cleanup_authorization.ps1": "931c901bb50687cf6b8e6b6e2e0e0aa5161a11085328251f1f09686a56239208",
+  "php/provisional_account_cleanup.php": "7cfe3f9f8a17a8db82bfbb8b236e6434a9f4aedb5f1ad343b75f10fe733e85c3"
+}

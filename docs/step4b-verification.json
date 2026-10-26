@@ -1,0 +1,28 @@
+{
+  "step": "4B",
+  "live_cleanup_enabled": false,
+  "scheduler_created": false,
+  "live_users": 9,
+  "live_security_logs": 342,
+  "live_dry_run": {
+    "eligible": [],
+    "deleted_ids": []
+  },
+  "syntax_files": [
+    "php/provisional_account_cleanup.php",
+    "cli/cleanup_expired_administrators.php",
+    "php/first_login_state.php",
+    "php/first_login_otp.php",
+    "php/first_login_setup.php",
+    "php/process_first_login_setup.php",
+    "tests/provisional_cleanup_isolated_test.php",
+    "tests/credential_mail_capture_test.php",
+    "tests/credential_mail_sink.php"
+  ],
+  "isolated_cleanup_tests": "PASS",
+  "local_mail_capture_tests": "PASS",
+  "external_smtp_acceptance": "NOT TESTED",
+  "actual_inbox_delivery": "NOT TESTED",
+  "web_access_protection": "404 for CLI service and test endpoints",
+  "disposable_databases_remaining": 0
+}

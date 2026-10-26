@@ -1,0 +1,3 @@
+<Files "cleanup_authorization_fixture.ps1">
+    Require all denied
+</Files>

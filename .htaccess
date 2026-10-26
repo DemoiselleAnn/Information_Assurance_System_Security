@@ -1,0 +1,56 @@
+# Enable rewrite engine
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /Cakedeco/
+
+# Keep local environment files out of the web root.
+RewriteRule (^|/)\.env(?:\.|$) - [R=404,L,NC]
+
+# Route JS requests through a gate that enforces navigation vs script loads
+# Route all JS files through the gate (internal rewrite)
+RewriteRule ^js/(.*\.js)$ php/js_gate.php?file=$1 [QSA,L]
+
+# Block direct access to legacy page files with 404 (must use front controller)
+RewriteRule ^php/(index|login|register|homepage|documents|profile|forgot_password|change_password|edit_profile)\.php$ - [R=404,L]
+
+## JS blocking is handled by php/js_gate.php, scoped to login/register View Source only
+
+# Allow list for PHP files reachable directly (others 404)
+RewriteCond %{REQUEST_URI} \.php$ [NC]
+RewriteCond %{REQUEST_URI} !exp\.php$ [NC]
+RewriteCond %{REQUEST_URI} !/php/(app|logout|process_register|process_forgot_password|process_change_password|process_otp|check_username|check_id_number|verify_id_forgot|account_status_poll|notification_status|superadmin_session_status|js_gate|first_login_otp|first_login_setup|process_first_login_setup)\.php$ [NC]
+RewriteRule ^ - [R=404,L]
+
+# Allow processing scripts only via POST; 404 if navigated by GET
+RewriteCond %{REQUEST_URI} ^/?.*php/(process_register|process_forgot_password|process_change_password|process_otp|check_username|check_id_number|verify_id_forgot|process_first_login_setup)\.php$ [NC]
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteRule ^ - [R=404,L]
+
+# If router (app.php) is clicked from View Source, return 404
+RewriteCond %{REQUEST_URI} /php/app\.php$ [NC]
+RewriteCond %{HTTP_REFERER} ^view-source: [NC]
+RewriteRule ^ - [R=404,L]
+
+# NOTE: Do NOT block .php here; doing so breaks normal navigation because browsers may omit Referer.
+
+</IfModule>
+# =========================
+# Remove previous FilesMatch deny/allow block; handled via Rewrite rules above
+# =========================
+# Use Apache default 403/404 pages (custom overrides removed)
+
+# Global JS hard block: clicking any .js navigates -> 404; script loads still work
+<IfModule mod_authz_core.c>
+    <FilesMatch "\.js$">
+        Require all denied
+        Require expr "%{HTTP:Sec-Fetch-Dest} == 'script' || %{HTTP_REFERER} =~ m#^https?://(localhost|127\.0\.0\.1)(?::\d+)?/iBarangayDocs107_2/iBarangayDocs/#"
+    </FilesMatch>
+    
+    # Fallback for browsers without Sec-Fetch-Dest: allow XHR/script tag via non-HTML Accept
+    <IfModule mod_setenvif.c>
+        SetEnvIf Accept "application/javascript|text/javascript|\*/\*" JS_OK
+    </IfModule>
+    <FilesMatch "\.js$">
+        Require expr "%{ENV:JS_OK} == '1' || %{HTTP:Sec-Fetch-Dest} == 'script' || %{HTTP_REFERER} =~ m#^https?://(localhost|127\.0\.0\.1)(?::\d+)?/iBarangayDocs107_2/iBarangayDocs/#"
+    </FilesMatch>
+</IfModule>

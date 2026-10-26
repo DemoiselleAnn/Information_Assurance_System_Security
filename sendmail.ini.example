@@ -1,0 +1,11 @@
+; Copy the relevant values to C:\xampp\sendmail\sendmail.ini.
+; Do not commit real SMTP credentials to this project.
+
+[sendmail]
+smtp_server=your.smtp.provider
+smtp_port=587
+smtp_ssl=tls
+auth_username=your-smtp-username
+auth_password=your-smtp-app-password
+force_sender=your-verified-sender@example.com
+error_logfile=error.log

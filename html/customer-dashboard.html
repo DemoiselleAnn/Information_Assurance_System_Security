@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Train | Frostline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/customer-dashboard.css">
+</head>
+<body class="dashboard-page">
+    <header class="dashboard-header">
+        <a class="brand" href="../php/app.php?page=customer_dashboard&view=home" aria-label="Frostline home">
+            <span class="brand-mark" aria-hidden="true"><i class="fas fa-snowflake"></i></span>
+            <span class="brand-copy">
+                <strong>FROSTLINE</strong>
+                <small>SECURE RAIL SYSTEM</small>
+            </span>
+        </a>
+        <div class="header-tools">
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+                <i class="far fa-bell" aria-hidden="true"></i>
+                <span class="notification-dot" aria-hidden="true"></span>
+            </button>
+            <span class="header-divider" aria-hidden="true"></span>
+            <button class="profile-menu" type="button" aria-label="Open current user profile menu">
+                <span class="avatar" aria-hidden="true"><i class="fas fa-user"></i></span>
+                <span class="profile-name">{{DISPLAY_NAME}}</span>
+                <i class="fas fa-chevron-down profile-chevron" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="dashboard-shell">
+        <aside class="sidebar" aria-label="Customer navigation">
+            <nav class="sidebar-nav">
+                <a class="sidebar-link {{HOME_ACTIVE}}" href="../php/app.php?page=customer_dashboard&view=home" aria-current="page"><i class="fas fa-house" aria-hidden="true"></i><span>Home</span></a>
+                <a class="sidebar-link" href="#"><i class="fas fa-ticket" aria-hidden="true"></i><span>Book a Ticket</span></a>
+                <a class="sidebar-link" href="#"><i class="far fa-calendar-check" aria-hidden="true"></i><span>My Bookings</span></a>
+                <a class="sidebar-link" href="#"><i class="far fa-clock" aria-hidden="true"></i><span>Schedules</span></a>
+                <a class="sidebar-link" href="#"><i class="fas fa-location-dot" aria-hidden="true"></i><span>Stations</span></a>
+                <a class="sidebar-link {{PROFILE_ACTIVE}}" href="../php/app.php?page=customer_dashboard&view=profile"><i class="far fa-user" aria-hidden="true"></i><span>My Profile</span></a>
+                <a class="sidebar-link {{SECURITY_LOGS_ACTIVE}}" href="../php/app.php?page=security_logs"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>Security Logs</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a class="sidebar-link" href="../php/logout.php"><i class="fas fa-arrow-right-from-bracket" aria-hidden="true"></i><span>Log out</span></a>
+                <p class="sidebar-motto">SAME PEOPLE<br>WILDER PLACES.</p>
+                <span class="motto-line" aria-hidden="true"></span>
+            </div>
+        </aside>
+
+        <main class="dashboard-main {{MAIN_CLASS}}">
+            <div class="content-wrap">
+                <div class="decorative-copy" aria-hidden="true">FURTHER<br>TOGETHER.<span></span></div>
+            <!-- DYNAMIC_CONTENT_START -->
+                <section class="journey-intro" aria-labelledby="page-title">
+                    <p class="eyebrow">PLAN YOUR JOURNEY</p>
+                    <h1 id="page-title">Find Your Train</h1>
+                    <p class="intro-copy">Search for available trains and book your next trip.</p>
+                </section>
+
+                <section class="search-panel" aria-label="Train search">
+                    <div class="field-group">
+                        <label for="from-station">From</label>
+                        <div class="field-display" id="from-station"><i class="fas fa-location-dot" aria-hidden="true"></i><span>Cabadbaran</span></div>
+                    </div>
+                    <button class="swap-button" type="button" aria-label="Swap stations"><i class="fas fa-arrow-right-arrow-left" aria-hidden="true"></i></button>
+                    <div class="field-group">
+                        <label for="to-station">To</label>
+                        <div class="field-display" id="to-station"><i class="fas fa-location-dot" aria-hidden="true"></i><span>Butuan</span></div>
+                    </div>
+                    <div class="field-group date-field">
+                        <label for="travel-date">Date</label>
+                        <div class="field-display" id="travel-date"><i class="far fa-calendar" aria-hidden="true"></i><span>Sep 20, 2026</span></div>
+                    </div>
+                    <button class="search-button" type="button"><i class="fas fa-magnifying-glass" aria-hidden="true"></i><span>Search</span></button>
+                </section>
+
+                <section class="results-section" aria-labelledby="results-title">
+                    <div class="results-heading">
+                        <h2 id="results-title">Available Trains</h2>
+                        <div class="sort-control"><span>Sort by</span><button type="button">Departure Time <i class="fas fa-chevron-down" aria-hidden="true"></i></button></div>
+                    </div>
+                    <div class="train-list">
+                        <article class="train-card">
+                            <div class="train-identity"><i class="fas fa-train-subway train-icon" aria-hidden="true"></i><div><strong>FL-101</strong><span>Frostline Express</span></div></div>
+                            <div class="station departure"><strong>Cabadbaran</strong><span>06:00 AM</span></div>
+                            <div class="route-line" aria-label="to"><span></span><i class="fas fa-arrow-right" aria-hidden="true"></i><span></span></div>
+                            <div class="station arrival"><strong>Butuan</strong><span>07:30 AM</span></div>
+                            <div class="train-stat"><strong>1h 30m</strong><span>Travel Time</span></div>
+                            <div class="train-stat"><strong>Economy</strong><span>Class</span></div>
+                            <strong class="price">&#8369; 250</strong>
+                            <button class="select-button" type="button">Select</button>
+                        </article>
+                        <article class="train-card">
+                            <div class="train-identity"><i class="fas fa-train-subway train-icon" aria-hidden="true"></i><div><strong>FL-103</strong><span>Frostline Express</span></div></div>
+                            <div class="station departure"><strong>Cabadbaran</strong><span>09:00 AM</span></div>
+                            <div class="route-line" aria-label="to"><span></span><i class="fas fa-arrow-right" aria-hidden="true"></i><span></span></div>
+                            <div class="station arrival"><strong>Butuan</strong><span>10:30 AM</span></div>
+                            <div class="train-stat"><strong>1h 30m</strong><span>Travel Time</span></div>
+                            <div class="train-stat"><strong>Economy</strong><span>Class</span></div>
+                            <strong class="price">&#8369; 250</strong>
+                            <button class="select-button" type="button">Select</button>
+                        </article>
+                        <article class="train-card">
+                            <div class="train-identity"><i class="fas fa-train-subway train-icon" aria-hidden="true"></i><div><strong>FL-201</strong><span>Frostline Regional</span></div></div>
+                            <div class="station departure"><strong>Cabadbaran</strong><span>12:00 PM</span></div>
+                            <div class="route-line" aria-label="to"><span></span><i class="fas fa-arrow-right" aria-hidden="true"></i><span></span></div>
+                            <div class="station arrival"><strong>Butuan</strong><span>01:20 PM</span></div>
+                            <div class="train-stat"><strong>1h 20m</strong><span>Travel Time</span></div>
+                            <div class="train-stat"><strong>Business</strong><span>Class</span></div>
+                            <strong class="price">&#8369; 400</strong>
+                            <button class="select-button" type="button">Select</button>
+                        </article>
+                        <article class="train-card">
+                            <div class="train-identity"><i class="fas fa-train-subway train-icon" aria-hidden="true"></i><div><strong>FL-205</strong><span>Frostline Regional</span></div></div>
+                            <div class="station departure"><strong>Cabadbaran</strong><span>03:00 PM</span></div>
+                            <div class="route-line" aria-label="to"><span></span><i class="fas fa-arrow-right" aria-hidden="true"></i><span></span></div>
+                            <div class="station arrival"><strong>Butuan</strong><span>04:30 PM</span></div>
+                            <div class="train-stat"><strong>1h 30m</strong><span>Travel Time</span></div>
+                            <div class="train-stat"><strong>Economy</strong><span>Class</span></div>
+                            <strong class="price">&#8369; 250</strong>
+                            <button class="select-button" type="button">Select</button>
+                        </article>
+                        <article class="train-card">
+                            <div class="train-identity"><i class="fas fa-train-subway train-icon" aria-hidden="true"></i><div><strong>FL-301</strong><span>Frostline Express</span></div></div>
+                            <div class="station departure"><strong>Cabadbaran</strong><span>06:00 PM</span></div>
+                            <div class="route-line" aria-label="to"><span></span><i class="fas fa-arrow-right" aria-hidden="true"></i><span></span></div>
+                            <div class="station arrival"><strong>Butuan</strong><span>07:30 PM</span></div>
+                            <div class="train-stat"><strong>1h 30m</strong><span>Travel Time</span></div>
+                            <div class="train-stat"><strong>Economy</strong><span>Class</span></div>
+                            <strong class="price">&#8369; 250</strong>
+                            <button class="select-button" type="button">Select</button>
+                        </article>
+                    </div>
+                </section>
+                <!-- DYNAMIC_CONTENT_END -->
+            </div>
+        </main>
+    </div>
+</body>
+</html>

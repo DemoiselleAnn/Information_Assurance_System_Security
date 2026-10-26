@@ -1,0 +1,272 @@
+.request-form {
+    display: grid;
+    grid-template-columns: minmax(220px, .8fr) minmax(280px, 1.5fr) auto;
+    align-items: end;
+    gap: 1rem;
+}
+
+.request-form label {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    color: var(--text-secondary);
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+.request-form select,
+.request-form textarea {
+    min-height: 40px;
+    padding: .55rem .7rem;
+    border: 1px solid var(--light-border);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--deep-icy-navy);
+    font: inherit;
+}
+
+.request-form textarea {
+    min-height: 40px;
+    resize: vertical;
+}
+
+.deletion-table {
+    min-width: 1420px;
+}
+
+.reason-cell {
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.detail-wide {
+    grid-column: 1 / -1;
+}
+
+.review-actions {
+    display: flex;
+    gap: .75rem;
+    margin-top: 1.25rem;
+}
+
+.review-actions form { margin: 0; }
+
+.pagination {
+    display: flex;
+    gap: .4rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.pagination a {
+    min-width: 34px;
+    padding: .45rem .65rem;
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    color: var(--main-blue);
+    text-align: center;
+    text-decoration: none;
+    background: #fff;
+}
+
+.pagination a.current {
+    background: var(--main-blue);
+    color: #fff;
+}
+
+.status-badge.approved { background: var(--soft-green); color: #276749; }
+
+/* Deletion Requests redesign: scoped to this page only. */
+.deletion-request-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(20rem, .9fr);
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 1.25rem;
+}
+.deletion-request-layout > .management-panel {
+    align-self: start;
+    margin: 0;
+    padding-top: 1.5rem;
+}
+.deletion-section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.15rem;
+}
+.deletion-section-heading h2 { margin: 0; }
+.deletion-section-heading p {
+    margin: .3rem 0 0;
+    color: #7892AA;
+    font-size: .82rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.account-search { position: relative; flex: 0 1 20rem; }
+.account-search i {
+    position: absolute;
+    left: .8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7892AA;
+    font-size: .8rem;
+}
+.account-search input {
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+    padding: .55rem .75rem .55rem 2.15rem;
+    border: 1px solid #E3EEF7;
+    border-radius: 10px;
+    background: #fff;
+    color: #173B63;
+    font: inherit;
+    font-size: .82rem;
+}
+.account-search input:focus,
+.reason-field textarea:focus { outline: none; border-color: #75B9E6; box-shadow: 0 0 0 3px rgba(117, 185, 230, .18); }
+.account-selection-table-wrap { overflow-x: auto; border: 1px solid #E3EEF7; border-radius: 10px; }
+.deletion-account-table { min-width: 660px; }
+.deletion-account-table th,
+.deletion-table th {
+    background: #EDF6FE;
+    color: #0F2747;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+}
+.deletion-account-table td,
+.deletion-table td {
+    color: #173B63;
+    vertical-align: middle;
+}
+.deletion-account-table .account-option { cursor: pointer; }
+.deletion-account-table .account-option:hover td,
+.deletion-account-table .account-option.is-selected td { background: #F7FBFF; }
+.deletion-account-table input[type="radio"] { accent-color: #2F6FAE; width: 1rem; height: 1rem; cursor: pointer; }
+.data-employee-id,
+.data-id,
+.data-username,
+.data-date {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .1px;
+    color: #52749A !important;
+}
+.data-username { color: #2F6FAE !important; font-weight: 600 !important; }
+.data-name { color: #0F2747 !important; font-weight: 600 !important; }
+.sl-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .28rem .7rem;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .15px;
+    line-height: 1;
+    white-space: nowrap;
+}
+.sl-badge-role { background: #DCEFFA; color: #2F6FAE; }
+.sl-badge-active, .sl-badge-success { background: #DDF4EA; color: #276749; }
+.sl-badge-blocked { background: #FFF0D2; color: #966B00; }
+.sl-badge-failed { background: #F8E1E5; color: #9B2335; }
+.sl-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; }
+.sl-dot-active, .sl-dot-success { background: #34A853; box-shadow: 0 0 0 3px rgba(52, 168, 83, .15); }
+.sl-dot-blocked { background: #D69E2E; box-shadow: 0 0 0 3px rgba(214, 158, 46, .15); }
+.sl-dot-failed { background: #E53E3E; box-shadow: 0 0 0 3px rgba(229, 62, 62, .15); }
+.account-table-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; color: #7892AA; font-size: .78rem; }
+.account-pagination { display: flex; gap: .35rem; }
+.account-pagination button { min-width: 2rem; height: 2rem; padding: .2rem .5rem; border: 1px solid #E3EEF7; border-radius: 7px; background: #fff; color: #2F6FAE; cursor: pointer; font: inherit; font-size: .78rem; }
+.account-pagination button.is-current { background: #2F6FAE; color: #fff; border-color: #2F6FAE; }
+.account-pagination button:disabled { opacity: .45; cursor: default; }
+.account-empty-state { padding: 1.5rem; margin: 0; color: #7892AA; text-align: center; font-size: .82rem; }
+.selected-account-summary { padding: 1rem; border: 1px solid #E3EEF7; border-radius: 10px; background: #F7FBFF; }
+.summary-label { margin: 0 0 .8rem; color: #7892AA; font-size: .72rem; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+.summary-empty { display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: 1rem .5rem; color: #7892AA; text-align: center; font-size: .78rem; }
+.selected-account-summary [hidden] { display: none !important; }
+.summary-empty i { color: #75B9E6; font-size: 1.7rem; margin-bottom: .2rem; }
+.summary-empty strong { color: #0F2747; font-size: .86rem; }
+.summary-details { display: flex; gap: .75rem; align-items: flex-start; }
+.summary-avatar { display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; flex: 0 0 auto; border-radius: 10px; background: #DCEFFA; color: #2F6FAE; }
+.summary-details > div:last-child { min-width: 0; flex: 1; }
+.summary-details strong { display: block; color: #0F2747; font-size: .95rem; line-height: 1.3; }
+.summary-details dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .35rem .65rem; margin: .75rem 0 0; font-size: .77rem; }
+.summary-details dt { color: #7892AA; }
+.summary-details dd { min-width: 0; margin: 0; overflow: hidden; color: #173B63; text-overflow: ellipsis; white-space: nowrap; }
+.reason-field { display: flex; flex-direction: column; gap: .4rem; margin-top: 1rem; color: #52749A; font-size: .78rem; font-weight: 600; }
+.reason-field > span { color: #9B2335; }
+.reason-field textarea { min-height: 8rem; box-sizing: border-box; resize: vertical; padding: .7rem; border: 1px solid #E3EEF7; border-radius: 10px; background: #fff; color: #173B63; font: inherit; font-size: .84rem; line-height: 1.5; }
+.deletion-info { display: flex; gap: .65rem; align-items: flex-start; margin-top: 1rem; padding: .75rem; border: 1px solid #DCEFFA; border-radius: 9px; background: #EAF4FC; color: #52749A; font-size: .75rem; line-height: 1.45; }
+.deletion-info i { color: #2F6FAE; margin-top: .12rem; }
+.submit-request-button { width: 100%; margin-top: 1rem; justify-content: center; }
+.deletion-table { min-width: 1420px; }
+.deletion-request-layout + .management-panel { min-width: 0; overflow: hidden; }
+.deletion-request-layout + .management-panel .filter-bar {
+    display: grid;
+    grid-template-columns: minmax(18rem, 1fr) minmax(10rem, .35fr) auto auto;
+    align-items: end;
+    gap: .85rem;
+    margin: 0 0 1.15rem;
+    padding: 0;
+}
+.deletion-request-layout + .management-panel .filter-bar label {
+    min-width: 0;
+    color: #52749A;
+    font-size: .78rem;
+    font-weight: 600;
+}
+.deletion-request-layout + .management-panel .filter-bar input,
+.deletion-request-layout + .management-panel .filter-bar select {
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+    padding: .55rem .75rem;
+    border: 1px solid #E3EEF7;
+    border-radius: 10px;
+    background: #fff;
+    color: #173B63;
+    font: inherit;
+    font-size: .84rem;
+}
+.deletion-request-layout + .management-panel .filter-bar input:focus,
+.deletion-request-layout + .management-panel .filter-bar select:focus {
+    outline: none;
+    border-color: #75B9E6;
+    box-shadow: 0 0 0 3px rgba(117, 185, 230, .18);
+}
+.deletion-filter-search { position: relative; }
+.deletion-filter-search > i { position: absolute; left: .8rem; bottom: .78rem; color: #7892AA; font-size: .8rem; }
+.deletion-filter-search input { padding-left: 2.15rem !important; }
+.deletion-request-layout + .management-panel .filter-bar .btn {
+    min-height: 40px;
+    align-self: end;
+    border-radius: 10px;
+    font-size: .84rem;
+}
+.deletion-request-layout + .management-panel .filter-bar a.btn { display: inline-flex; align-items: center; }
+.deletion-request-layout + .management-panel > .table-container { width: 100%; min-width: 0; overflow-x: auto; border: 1px solid #E3EEF7; border-radius: 10px; }
+.deletion-table .action-cell { text-align: center; }
+.deletion-table .action-cell a { color: #173B63; font-size: .8rem; font-weight: 500; text-decoration: none; }
+.deletion-table .action-cell a:hover { color: #2F6FAE; }
+
+@media (max-width: 980px) {
+    .deletion-request-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 800px) {
+    .request-form { grid-template-columns: 1fr; }
+    .review-actions { flex-direction: column; align-items: stretch; }
+    .deletion-section-heading { flex-direction: column; }
+    .account-search { width: 100%; flex-basis: auto; }
+    .account-table-footer { align-items: flex-start; flex-direction: column; }
+    .deletion-request-layout + .management-panel .filter-bar { grid-template-columns: 1fr; align-items: stretch; }
+    .deletion-request-layout + .management-panel .filter-bar .btn,
+    .deletion-request-layout + .management-panel .filter-bar a.btn { width: 100%; }
+}
